@@ -25,5 +25,10 @@ Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contact', 'ContactController@index')->name('contact');
 //route to insurance page
 Route::get('/insurance', 'InsuranceController@index')->name('insurance');
+//route to insurance page to do validation with POST request
+Route::post('/insurance', 'InsuranceController@validation')->name('insurance.validation');
+//route to insurance providers page
+Route::get('/insuranceproviders', 'InsuranceProvidersController@index')->name('insuranceproviders');
 //route to Homepage
 Route::get('/home', 'HomeController@index')->name('home');
+
