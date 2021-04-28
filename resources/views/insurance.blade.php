@@ -5,8 +5,10 @@
   <div class="row">
     <div class="col-md-12 col-sm-12">
       <div class="insuranceDetailContainer">
+        {{-- Title of the form --}}
         <h2>Compare and Purchase the best car insurance</h2>
 
+        {{-- Form --}}
         {!! Form::open(['action' => 'InsuranceController@validation', 'method' => 'post']) !!}
           <div class="form-group {{ $errors->has('CarOwnerName') ? 'has-error' : '' }}">
             {{Form::label('CarOwnerName', 'Car Owner Name')}}
@@ -46,6 +48,8 @@
             {{Form::label('Married', 'Married')}}<br>
             <span class="text-danger">{{ $errors->first('MaritalStatus') }}</span>
           </div>
+          
+          {{-- Proceed button --}}
           {{Form::submit('Proceed', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
 

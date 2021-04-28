@@ -29,6 +29,8 @@ Route::get('/insurance', 'InsuranceController@index')->name('insurance');
 Route::post('/insurance', 'InsuranceController@validation')->name('insurance.validation');
 //route to insurance providers page
 Route::get('/insuranceproviders', 'InsuranceProvidersController@index')->name('insuranceproviders');
+//route to car and user details page
+Route::get('/caranduserdetails', 'CarAndUserDetailsController@index')->name('caranduserdetails');
 //route to Homepage
 Route::get('/home', 'HomeController@index')->name('home');
 
