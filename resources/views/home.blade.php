@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container homeContainer">
-  <div class="row homeContainerBanner">
-    <br>
-    <br>
+<div class="container container_primary">
+  <div class="row container_primary_banner">
+      <br>
+      <br>
     <div class="col-12 bannerTextContainer">
       <center>
         <span class="bannerText">BEST PLACE TO BUY</span><br>
@@ -13,9 +13,9 @@
       </center>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
   <div class="row homeBlocks">
     <center>
       <div class="col-md-3 col-sm-12 homeblock homeblock1">
@@ -48,9 +48,10 @@
     <div class="col-md-12 col-sm-12">
       <div class="homeBigBlock2">
         <center>
-          <h1><b>We'll Find you the best car insurance</b></h1><br>
+          <h1><b>We'll Find You the best car insurances</b></h1><br>
           <span>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to <br> tell a story and let your users know a little more about you.</span><br><br><br>
-          <button type="button" name="button" class="btn-action">FIND OUT MORE</button><br><br><br><br><br><br>
+            <a href="{{route('insurance')}}">
+            <button type="button" name="button" class="btn-action">FIND OUT MORE</button><br><br><br><br><br><br>
         </center>
       </div>
     </div>

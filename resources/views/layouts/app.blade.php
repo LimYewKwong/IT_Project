@@ -12,34 +12,33 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/pages.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
-//header
-
   <div id="app">
     <nav class="navbar navbar-default navbar-fixed-top">
-
       <div class="container">
         <div class="navbar-header">
 
-
           <!-- Collapsed Hamburger -->
-          <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#app-navbar-collapse">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
             <span class="sr-only">Toggle Navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
+        {{--Header section starts from here--}}
           <!-- Branding Image -->
-          <a class="navbar-brand " href="{{ url('/') }}">
+          <a class="navbar-brand" href="{{ url('/') }}">
             <span class="logoFont">STILLWATERS</span>
           </a>
         </div>
 
-        <div class="collapse navbar-collapse " id="app-navbar-collapse">
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
-          <ul class="nav navbar-nav mx-auto ">
+          <ul class="nav navbar-nav mx-auto" style="font-family: helvetica;">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ route('insurance') }}">Car Insurance</a></li>
             <li><a href="{{ route('about') }}">About Us</a></li>
@@ -50,7 +49,7 @@
           <ul class="nav navbar-nav navbar-right">
 
             <li>
-              <div class="form-group has-feedback " style="position: relative; top: 6px;">
+              <div class="form-group has-feedback" style="position: relative; top: 6px;">
                 <input type="text" class="form-control" id="inputSuccess2" placeholder="Search Site"/>
                 <span class="form-control-feedback"><i class="fa fa-search"></i></span>
               </div>
@@ -66,9 +65,15 @@
               </a>
 
               <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="{{ route('home') }}">
+               {{--<li>
+                  <a href="{{route('profile')}}">
                     Profile
+                  </a>
+                </li>--}}
+
+                <li>
+                  <a href="{{route('purchases')}}">
+                    My Purchases
                   </a>
                 </li>
                 <li>
@@ -89,7 +94,6 @@
         </ul>
       </div>
     </div>
-
   </nav>
 
 
@@ -97,54 +101,63 @@
     @yield('content')
   </div>
 
+{{--Footer section starts from here--}}
+      <footer>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-4 col-sm-12 footerContainer">
+                      <div class="footerContent">
+                          <h3 class="footerHead">Get in touch</h3><br>
+                          <span>47, Lot 3780, Section 218, </span><br>
+                          <span>KNLD Liang Kee Commercial Centre, </span><br>
+                          <span>4½ mile Penrissen Road, 93200, </span><br>
+                          <span>Kuching, Sarawak.</span>
+                      </div>
+                  </div>
 
-  <footer>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-sm-12 footerContainer">
-          <div class="footerContent">
-            <h3 class="footerHead">Get in touch</h3><br>
-            <span>47, Lot 3780, Section 218, </span><br>
-            <span>KNLD Liang Kee Commercial Centre, </span><br>
-            <span>4½ mile Penrissen Road, 93200, </span><br>
-            <span>Kuching, Sarawak.</span>
+                  <div class="col-md-4 col-sm-12 footerContainer">
+                      <div class="footerContent">
+                          <h3 class="footerHead">Opening Hours</h3><br>
+                          <span>Mon - Fri: 7am - 10pm</span><br>
+                          <span>Sun: 7am - 3pm</span><br><br>
+                          <span><i class="fab fa-facebook fa-2x"></i></span>&nbsp;&nbsp;&nbsp;
+                          <span><i class="fab fa-instagram fa-2x"></i></span>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4 col-sm-12 footerContainer">
+                      <div class="footerContent">
+                          <h3 class="footerHead">Contact Us</h3><br>
+                          <span>500 Terry Francois Street</span><br>
+                          <span>San Francisco, CA 94158</span><br><br>
+                          <span>Tel: 123-456-7890</span><br>
+                          <span>info@mysite.com</span><br><br>
+                          <a href="{{ url('/') }}">
+                              <span class="logoFont">STILLWATERS</span>
+                          </a>
+                      </div>
+                  </div>
+
+              </div>
+              <hr>
+              <div class="row">
+                  <div class="col-12">
+                      <center>
+                          <span>© 2023 by STILLWATERS. Proudly created with Laravel</span>
+                      </center>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4 col-sm-12 footerContainer">
-          <div class="footerContent">
-            <h3 class="footerHead">Opening Hours</h3><br>
-            <span>Mon - Fri: 7am - 10pm</span><br>
-            <span>Sun: 7am - 3pm</span><br><br>
-            <span><i class="fab fa-facebook fa-2x"></i></span>&nbsp;&nbsp;&nbsp;
-            <span><i class="fab fa-instagram fa-2x"></i></span>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12 footerContainer">
-          <div class="footerContent">
-            <h3 class="footerHead">Contact Us</h3><br>
-            <span>500 Terry Francois Street</span><br>
-            <span>San Francisco, CA 94158</span><br><br>
-            <span>Tel: 123-456-7890</span><br>
-            <span>info@mysite.com</span><br><br>
-            <a href="{{ url('/') }}">
-              <span class="logoFont">STILLWATERS</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-12">
-          <center>
-            <span>© 2023 by STILLWATERS. Proudly created with Laravel</span>
-          </center>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+      </footer>
+  </div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<!-- JQuery import -->
+<script src="{{ asset('js/jquery.min.js') }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+
+@yield('script')
+
 </body>
 </html>

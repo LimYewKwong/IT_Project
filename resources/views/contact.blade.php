@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container homeContainer">
+<div class="container container_primary">
   <div class="row containerBanner">
     <div class="col-12 bannerTextContainerSecondary">
       <center>
@@ -21,10 +21,8 @@
       <div class="col-md-4 col-sm-12 footerContainer">
         <div class="footerContent">
           <h3 class="footerHead"><b>Visit Us</b></h3><br>
-          <span>47, Lot 3780, Section 218,</span><br>
-          <span>KNLD Liang Kee Commercial Centre,</span>
-          <span>mile Penrissen Road, 93200,</span>
-          <span> Kuching, Sarawak.</span>
+          <span>500 Terry Francois Street</span><br>
+          <span>San Francisco, CA 94158</span>
         </div>
       </div>
       <div class="col-md-4 col-sm-12 footerContainer">
@@ -35,31 +33,62 @@
         </div>
       </div>
     </div><br><br>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <input type="text" class="form-control" placeholder="Name">
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <input type="text" class="form-control" placeholder="Email">
-      </div>
-    </div><br>
-    <div class="row">
-      <div class="col-sm-12">
-        <input type="text" class="form-control" placeholder="Subject">
-      </div>
-    </div><br>
-    <div class="row">
-      <div class="col-sm-12">
-        <textarea name="name" rows="5" class="form-control" placeholder="Message"></textarea>
-      </div>
-    </div><br>
-    <div class="row">
-      <div class="col-sm-12">
-        <center>
-        <button type="button" name="button" class="btn btn-action">SEND</button>
-      </center>
-      </div>
+
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+      {{ Session::get('success') }}
     </div>
+    @endif
+    <form action="contact" method="post">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+            <input type="text" class="form-control" name="name" placeholder="Name">
+            @if ($errors->has('name'))
+            <span class="help-block">
+              <strong>{{ $errors->first('name') }}</strong>
+            </span>
+            @endif
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <input type="text" class="form-control" name="email" placeholder="Email">
+            @if ($errors->has('email'))
+            <span class="help-block">
+              <strong>{{ $errors->first('email') }}</strong>
+            </span>
+            @endif
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
+            <input type="text" class="form-control" name="subject" placeholder="Subject">
+            @if ($errors->has('subject'))
+            <span class="help-block">
+              <strong>{{ $errors->first('subject') }}</strong>
+            </span>
+            @endif
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
+            <textarea class="form-control" name="message_content" placeholder="Message" rows="5"></textarea>
+            @if ($errors->has('message'))
+            <span class="help-block">
+              <strong>{{ $errors->first('message') }}</strong>
+            </span>
+            @endif
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-action">Send</button>
+        </div>
+      </div>
+    </form>
   </div><br><br><br><br>
   <div class="row">
     <div class="col-12">

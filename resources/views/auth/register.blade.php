@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container"><br><br><br>
+<div class="container container_main">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
@@ -29,7 +29,7 @@
               <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
               <div class="col-md-6">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                <input id="email" type="email" class="form-control" placeholder="Enter Your Purchasing Email" name="email" value="{{ old('email') }}">
 
                 @if ($errors->has('email'))
                 <span class="help-block">
@@ -66,6 +66,12 @@
                 <button type="submit" class="btn btn-primary">
                   Register
                 </button>
+              </div>
+            </div><br>
+
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <span>Already a member? <a href="{{ route('login') }}">Log In</a></span>
               </div>
             </div>
           </form>

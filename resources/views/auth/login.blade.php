@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container"><br><br><br>
+<div class="container container_main">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
@@ -58,6 +58,12 @@
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                   Forgot Your Password?
                 </a>
+              </div>
+            </div><br>
+
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <span>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></span>
               </div>
             </div>
           </form>
