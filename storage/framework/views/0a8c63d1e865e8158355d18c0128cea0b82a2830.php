@@ -102,6 +102,11 @@
                                     <div class="col-md-12" id="container_addons_<?php echo e($insurance->id); ?>">
                                     </div>
                                 </div><br>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <small>* Sum insured displayed here are the recommended sum insured by respective insurance companies.</small>
+                                    </div>
+                                </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
@@ -144,4 +149,4 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('admin.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\stillwaters\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\IT_Project\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

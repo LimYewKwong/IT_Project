@@ -103,11 +103,6 @@
                                     <div class="col-md-12" id="container_addons_{{$insurance->id}}">
                                     </div>
                                 </div><br>
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <small>* Sum insured displayed here are the recommended sum insured by respective insurance companies.</small>
-                                    </div>
-                                </div>
                             </div>
                         @endforeach
                     </div>

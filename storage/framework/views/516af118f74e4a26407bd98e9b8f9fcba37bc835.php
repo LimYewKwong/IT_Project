@@ -82,7 +82,7 @@
                                         <div class="col-md-6 col-sm-12">
                                             <span><b>Add-Ons:</b></span>
                                             <span>
-                    <?php
+                                            <?php
                                                 if($insurance->addon_id == ""){
                                                     echo "No add-ons selected";
                                                 }else{
@@ -90,19 +90,20 @@
                                                     echo count($addOns).' <a id="view_'.$insurance->id.'" onclick="getAddons('.$insurance->id.')" style="cursor: pointer;">View</a>';
                                                 }
                                                 ?>
-                    <input type="hidden" id="input_addons_<?php echo e($insurance->id); ?>" value="<?php echo e($insurance->addon_id); ?>">
-                    </span>
+                                            <input type="hidden" id="input_addons_<?php echo e($insurance->id); ?>" value="<?php echo e($insurance->addon_id); ?>">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="mailButton">
+                                        <div>
+                                          <a href="mailto:<?php echo e($insurance->email); ?>?Subject=Regarding%20your%20insurance%20plan
+                                          &Body=Dear Mr/Mrs <?php echo e($insurance->full_name); ?>,%0A%0AThis message is sent to notify you that your current insurance plan is to expire soon (on <?php echo e($insurance->end_date); ?>). Please do navigate to our site to renew your insurance plan.%0A%0AThank you and stay safe.%0A%0AKind Regards,%0AStill Waters Fiduciaries Sdn. Bhd%0A%0A"><button>Send expiry notice</button></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12" id="container_addons_<?php echo e($insurance->id); ?>">
                                         </div>
                                     </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <small>* Sum insured displayed here are the recommended sum insured by respective insurance companies.</small>
-                                        </div>
-                                    </div>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
