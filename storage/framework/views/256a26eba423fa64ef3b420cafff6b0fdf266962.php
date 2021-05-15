@@ -47,7 +47,9 @@
       <div class="homeBigBlock2">
         <center>
           <h1><b>We'll Find You the best car insurances</b></h1><br>
-          <span>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to <br> tell a story and let your users know a little more about you.</span><br><br><br>
+          <span>
+            Still Waters FSB provides a full range of flexible insurance solutions,<br> so you and your loved ones can focus on living life to the fullest.
+          </span><br><br><br>
             <a href="<?php echo e(route('insurance')); ?>">
             <button type="button" name="button" class="btn-action">FIND OUT MORE</button>
             </a>

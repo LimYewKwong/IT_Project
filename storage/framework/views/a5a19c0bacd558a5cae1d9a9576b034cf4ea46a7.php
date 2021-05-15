@@ -29,7 +29,7 @@
 
       <div class="form-group<?php echo e($errors->has('ic_number') ? ' has-error' : ''); ?>">
         <label for="ic_number">Car Owner IC Number</label>
-        <input type="text" class="form-control" id="ic_number" placeholder="Enter Your NID " name="ic_number" value="<?php echo e(old('ic_number', session()->get('insurance_data.ic_number'))); ?>">
+        <input  class="form-control" id="ic_number" placeholder="Enter Your NID " name="ic_number" value="<?php echo e(old('ic_number', session()->get('insurance_data.ic_number'))); ?>">
         <?php if($errors->has('ic_number')): ?>
         <span class="help-block">
           <strong><?php echo e($errors->first('ic_number')); ?></strong>
@@ -39,7 +39,7 @@
 
       <div class="form-group<?php echo e($errors->has('postcode') ? ' has-error' : ''); ?>">
         <label for="postcode">Residential Postcode</label>
-        <input type="number" class="form-control" id="postcode" placeholder="Enter your Postcode" name="postcode" value="<?php echo e(old('postcode', session()->get('insurance_data.postcode'))); ?>">
+        <input  class="form-control" id="postcode" placeholder="Enter your Postcode" name="postcode" value="<?php echo e(old('postcode', session()->get('insurance_data.postcode'))); ?>">
         <?php if($errors->has('postcode')): ?>
         <span class="help-block">
           <strong><?php echo e($errors->first('postcode')); ?></strong>

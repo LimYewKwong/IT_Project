@@ -31,7 +31,7 @@
 
       <div class="form-group{{ $errors->has('ic_number') ? ' has-error' : '' }}">
         <label for="ic_number">Car Owner IC Number</label>
-        <input type="text" class="form-control" id="ic_number" placeholder="Enter Your NID " name="ic_number" value="{{ old('ic_number', session()->get('insurance_data.ic_number')) }}">
+        <input  class="form-control" id="ic_number" placeholder="Enter Your NID " name="ic_number" value="{{ old('ic_number', session()->get('insurance_data.ic_number')) }}">
         @if ($errors->has('ic_number'))
         <span class="help-block">
           <strong>{{ $errors->first('ic_number') }}</strong>
@@ -41,7 +41,7 @@
 
       <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
         <label for="postcode">Residential Postcode</label>
-        <input type="number" class="form-control" id="postcode" placeholder="Enter your Postcode" name="postcode" value="{{ old('postcode', session()->get('insurance_data.postcode')) }}">
+        <input  class="form-control" id="postcode" placeholder="Enter your Postcode" name="postcode" value="{{ old('postcode', session()->get('insurance_data.postcode')) }}">
         @if ($errors->has('postcode'))
         <span class="help-block">
           <strong>{{ $errors->first('postcode') }}</strong>
