@@ -13,7 +13,8 @@
     <div class="row">
       <div class="col-12">
         <p>
-
+            Still Waters Fiduciaries Sdn. Bhd. (SWF) serves as an insurance and investment-focused Fiduciary Advisory firm and is the pioneer to operate in East Malaysia. With the solid background and consolidated experience of the Founders, SWF is licensed in providing financial solutions and services to clients ranging from individuals to corporates in various areas such as constructing financial plans, budgeting, investment, wealth distribution, insurance, retirement planning.
+            <br><br>
             Still Waters FSB provides a full range of flexible insurance solutions, so you and your loved ones can focus on living life to the fullest.
 
             <br><br>
