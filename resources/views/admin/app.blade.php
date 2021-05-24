@@ -105,8 +105,8 @@
             <h3 class="footerHead">Opening Hours</h3><br>
             <span>Mon - Fri: 7am - 10pm</span><br>
             <span>Sun: 7am - 3pm</span><br><br>
-            <span><i class="fab fa-facebook fa-2x"></i></span>&nbsp;&nbsp;&nbsp;
-            <span><i class="fab fa-instagram fa-2x"></i></span>
+            <span><a href="https://www.facebook.com/stillwatersfsb/"><i class="fab fa-facebook fa-2x"></i></a></span>&nbsp;&nbsp;&nbsp;
+            <span><a href="https://www.instagram.com/stillwatersfsb/"><i class="fab fa-instagram fa-2x"></i></a></span>
           </div>
         </div>
         <div class="col-md-4 col-sm-12 footerContainer">

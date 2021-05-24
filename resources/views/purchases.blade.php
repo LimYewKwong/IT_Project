@@ -5,6 +5,7 @@
 <div class="container container_secondary">
   <div class="content_purchases">
     <div class="row">
+      {{-- user details with card view --}}
       <div class="col-md-4 col-sm-12">
         <div class="user_container">
           <i class="fas fa-user-circle fa-8x"></i>
@@ -15,6 +16,20 @@
           <span>My Purchases</span>
         </div>
       </div>
+      {{-- search bar --}}
+      <form action="{{route('searchpurchases')}}" method="POST" role="search">
+        {{ csrf_field() }}
+        <div class="input-group" style="margin-bottom: 20px">
+          <input type="text" class="form-control" placeholder="Search insurance name or reference id" name="search">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+
+      {{-- purchased insurance details --}}
       <div class="col-md-8 col-sm-12">
         <div class="insurance_providers_container">
           @foreach($insurances as $insurance)
@@ -80,7 +95,7 @@
   </div>
 </div>
 @stop
-
+{{-- retreiving addons --}}
 @section('script')
 <script type="text/javascript">
 function getAddons(insurance_id){

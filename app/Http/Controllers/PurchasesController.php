@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Auth;
 use App\User;
 
@@ -15,7 +16,7 @@ class PurchasesController extends Controller
 
   public function index()
   {
-    $insurances = DB::table('insurances')->whereIn('email', [Auth::user()->email])->join('insurance_providers', 'insurance_providers.id', '=', 'insurances.provider_id')->get();
+    $insurances = DB::table('insurances')->whereIn('email', [Auth::user()->email])->join('insurance_providers', 'insurance_providers.id', '=', 'insurances.provider_id')->orderBy('insurances.created_at','DESC')->get();
     return view('purchases', [
       'insurances' => $insurances,
       'name' => Auth::user()->name,
@@ -26,4 +27,6 @@ class PurchasesController extends Controller
     $addOns = DB::table('add_ons')->whereIn('id', explode("," , $request->addon_id))->get();
     return $addOns;
   }
+
+
 }

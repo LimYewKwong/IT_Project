@@ -24,7 +24,7 @@
               <!-- We'll put the error messages in this element -->
               <div id="card-errors" role="alert" style="color: red;"></div><br><br>
 
-              <button id="card-button" class="btn btn-primary">Pay RM {{$amount}}</button>
+              <button id="card-button" class="btn btn-primary" >Pay RM {{$amount}} </button>
             </center>
           </form>
           <br>

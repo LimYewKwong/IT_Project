@@ -38,7 +38,7 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
-          <ul class="nav navbar-nav mx-auto" style="font-family: helvetica;">
+          <ul class="nav navbar-nav navbar-center" style="font-family: helvetica;">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ route('insurance') }}">Car Insurance</a></li>
             <li><a href="{{ route('about') }}">About Us</a></li>
@@ -48,12 +48,13 @@
           <!-- Right Side Of Navbar -->
           <ul class="nav navbar-nav navbar-right">
 
-            <li>
+            {{-- <li>
               <div class="form-group has-feedback" style="position: relative; top: 6px;">
                 <input type="text" class="form-control" id="inputSuccess2" placeholder="Search Site"/>
                 <span class="form-control-feedback"><i class="fa fa-search"></i></span>
               </div>
-            </li>
+            </li> --}}
+
             <!-- Authentication Links -->
             @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
@@ -120,8 +121,8 @@
                           <h3 class="footerHead">Opening Hours</h3><br>
                           <span>Mon - Fri: 7am - 10pm</span><br>
                           <span>Sun: 7am - 3pm</span><br><br>
-                          <span><i class="fab fa-facebook fa-2x"></i></span>&nbsp;&nbsp;&nbsp;
-                          <span><i class="fab fa-instagram fa-2x"></i></span>
+                          <span><a href="https://www.facebook.com/stillwatersfsb/"><i class="fab fa-facebook fa-2x"></i></a></span>&nbsp;&nbsp;&nbsp;
+                          <span><a href="https://www.instagram.com/stillwatersfsb/"><i class="fab fa-instagram fa-2x"></i></a></span>
                       </div>
                   </div>
 

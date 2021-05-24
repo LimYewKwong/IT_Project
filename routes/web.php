@@ -17,8 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('admin/dashboard','AdminController@index')->name('admin.dashboard');
-Route::post('admin/dashboard', 'AdminController@getAddons')->name('admin.dashboard.addons');
+Route::post('admin/dashboard/addons', 'AdminController@getAddons')->name('admin.dashboard.addons');
+Route::post('admin/dashboard', 'AdminController@sendMail')->name('admin.reminder.send');
+Route::post('admin/dashboardsearch', 'AdminController@adminDashboardSearch')->name('admin.dashboard.search');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
 Route::get('admin/register','Admin\RegisterController@showRegistrationForm')->name('admin.register');
@@ -36,6 +39,8 @@ Route::post('/contact', 'ContactController@sendMail')->name('contact.send');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/purchases', 'PurchasesController@index')->name('purchases');
 Route::post('/purchases', 'PurchasesController@getAddons')->name('purchases.addons');
+
+Route::post('/searchpurchases', 'SearchPurchasesController@searchingFunction')->name('searchpurchases');
 
 Route::get('/insurance', 'InsurancesController@create')->name('insurance');
 Route::get('/insurance/b', 'InsurancesController@back')->name('insurance');

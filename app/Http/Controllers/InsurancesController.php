@@ -26,9 +26,9 @@ class InsurancesController extends Controller
     $validatedData  = $this->validate($request, [
       'full_name' => 'required|string|max:255',
       'car_number' => 'required|string|max:255|exists:car_details,car_number',
-      'ic_number' => 'required|string|max:255',
-      'postcode' => 'required|string|max:5',
-      'mobile' => 'required|string|max:255',
+      'ic_number' => 'required|numeric|digits:12',
+      'postcode' => 'required|numeric|digits:5',
+      'mobile' => 'required|max:11|regex:/(01)[0-9]{8}/',
       'email' => 'required|string|email|max:255',
       'maritial_status' => 'required',
       'data_policy' => 'required',
