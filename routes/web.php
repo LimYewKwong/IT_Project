@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('admin/dashboard','AdminController@index')->name('admin.dashboard');
-Route::post('admin/dashboard', 'AdminController@getAddons')->name('admin.dashboard.addons');
+Route::post('admin/dashboard/addons', 'AdminController@getAddons')->name('admin.dashboard.addons');
+Route::post('admin/dashboard', 'AdminController@sendMail')->name('admin.reminder.send');
 Route::post('admin/dashboardsearch', 'AdminController@adminDashboardSearch')->name('admin.dashboard.search');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');

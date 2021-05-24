@@ -5,7 +5,6 @@
     <div class="container container_secondary">
         <div class="content_purchases">
             <div class="row">
-                {{-- admin details --}}
                 <div class="col-md-4 col-sm-12">
                     <div class="user_container">
                         <i class="fas fa-user-circle fa-8x"></i>
@@ -20,25 +19,39 @@
                 <form action="{{url('admin/dashboardsearch')}}" method="POST" role="search">
                     {{ csrf_field() }}
                     <div class="input-group" style="margin-bottom: 20px">
-                    <input type="text" class="form-control" placeholder="Search customer name or reference id" name="adminsearch">
-                    <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Search customer name or reference id" name="adminsearch">
+                        <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">
                         <i class="fa fa-search"></i>
                         </button>
                     </span>
                     </div>
                 </form>
-                
-                {{-- customers details --}}
                 <div class="col-md-8 col-sm-12">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
                     <div class="insurance_providers_container">
                         @foreach($insurances as $insurance)
                             <div class="insurance_providers" data-price="{{$insurance->amount}}" data-sum="{{$insurance->sum_insured}}">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-10">
                                         <b>Name: {{$insurance->full_name}}</b><br>
                                         <b>Email: {{$insurance->email}}</b><br>
                                         <b>Date: {{$insurance->start_date}}</b><br>
+                                    </div>
+                                    {{-- sending expiry notification --}}
+                                    <div class="mailButton">
+                                        <form action="{{route('admin.reminder.send')}}" method="post">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="hidden" name="full_name" value="{{$insurance->full_name}}">
+                                            <input type="hidden" name="email" value="{{$insurance->email}}">
+                                            <input type="hidden" name="insurance_name" value="{{$insurance->name}}">
+                                            <input type="hidden" name="expiry_date" value="{{$insurance->end_date}}">
+                                            <button type="submit" name="button" class=" ">Send Expiry Notification</button>
+                                        </form>
                                     </div>
                                 </div><br>
                                 <div class="row">
@@ -78,31 +91,23 @@
                                     <div class="col-md-6 col-sm-12">
                                         <span><b>Add-Ons:</b></span>
                                         <span>
-                                        <?php
+                  <?php
                                             if($insurance->addon_id == ""){
                                                 echo "No add-ons selected";
                                             }else{
                                                 $addOns = explode(",", $insurance->addon_id);
                                                 echo count($addOns).' <a id="view_'.$insurance->id.'" onclick="getAddons('.$insurance->id.')" style="cursor: pointer;">View</a>';
                                             }
-                                        ?>
-                                        <input type="hidden" id="input_addons_{{$insurance->id}}" value="{{$insurance->addon_id}}">
-                                        </span>
+                                            ?>
+                  <input type="hidden" id="input_addons_{{$insurance->id}}" value="{{$insurance->addon_id}}">
+                </span>
                                     </div>
                                 </div>
-                                {{-- parry part --}}
-                                <br>
-                                <div class="mailButton">
-                                  <div>
-                                    <a href="mailto:{{$insurance->email}}?Subject=Regarding%20your%20insurance%20plan
-                                    &Body=Dear Mr/Mrs {{$insurance->full_name}},%0A%0AThis message is sent to notify you that your current insurance plan is to expire soon (on {{$insurance->end_date}}). Please do navigate to our site to renew your insurance plan.%0A%0AThank you and stay safe.%0A%0AKind Regards,%0AStill Waters Fiduciaries Sdn. Bhd%0A%0A"><button>Send expiry notice</button></a>
-                                  </div>
-                                </div>
-                                {{-- parry part --}}
                                 <div class="row">
                                     <div class="col-md-12" id="container_addons_{{$insurance->id}}">
                                     </div>
                                 </div><br>
+
                             </div>
                         @endforeach
                     </div>

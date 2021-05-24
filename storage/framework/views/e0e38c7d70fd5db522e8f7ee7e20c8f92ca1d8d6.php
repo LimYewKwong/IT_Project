@@ -3,7 +3,6 @@
     <div class="container container_secondary">
         <div class="content_purchases">
             <div class="row">
-                
                 <div class="col-md-4 col-sm-12">
                     <div class="user_container">
                         <i class="fas fa-user-circle fa-8x"></i>
@@ -19,25 +18,40 @@
                     <?php echo e(csrf_field()); ?>
 
                     <div class="input-group" style="margin-bottom: 20px">
-                    <input type="text" class="form-control" placeholder="Search customer name or reference id" name="adminsearch">
-                    <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Search customer name or reference id" name="adminsearch">
+                        <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">
                         <i class="fa fa-search"></i>
                         </button>
                     </span>
                     </div>
                 </form>
-                
-                
                 <div class="col-md-8 col-sm-12">
+                    <?php if(Session::has('success')): ?>
+                        <div class="alert alert-success">
+                            <?php echo e(Session::get('success')); ?>
+
+                        </div>
+                    <?php endif; ?>
                     <div class="insurance_providers_container">
                         <?php $__currentLoopData = $insurances; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $insurance): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="insurance_providers" data-price="<?php echo e($insurance->amount); ?>" data-sum="<?php echo e($insurance->sum_insured); ?>">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-10">
                                         <b>Name: <?php echo e($insurance->full_name); ?></b><br>
                                         <b>Email: <?php echo e($insurance->email); ?></b><br>
                                         <b>Date: <?php echo e($insurance->start_date); ?></b><br>
+                                    </div>
+                                    
+                                    <div class="mailButton">
+                                        <form action="<?php echo e(route('admin.reminder.send')); ?>" method="post">
+                                            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                                            <input type="hidden" name="full_name" value="<?php echo e($insurance->full_name); ?>">
+                                            <input type="hidden" name="email" value="<?php echo e($insurance->email); ?>">
+                                            <input type="hidden" name="insurance_name" value="<?php echo e($insurance->name); ?>">
+                                            <input type="hidden" name="expiry_date" value="<?php echo e($insurance->end_date); ?>">
+                                            <button type="submit" name="button" class=" ">Send Expiry Notification</button>
+                                        </form>
                                     </div>
                                 </div><br>
                                 <div class="row">
@@ -77,31 +91,23 @@
                                     <div class="col-md-6 col-sm-12">
                                         <span><b>Add-Ons:</b></span>
                                         <span>
-                                        <?php
+                  <?php
                                             if($insurance->addon_id == ""){
                                                 echo "No add-ons selected";
                                             }else{
                                                 $addOns = explode(",", $insurance->addon_id);
                                                 echo count($addOns).' <a id="view_'.$insurance->id.'" onclick="getAddons('.$insurance->id.')" style="cursor: pointer;">View</a>';
                                             }
-                                        ?>
-                                        <input type="hidden" id="input_addons_<?php echo e($insurance->id); ?>" value="<?php echo e($insurance->addon_id); ?>">
-                                        </span>
+                                            ?>
+                  <input type="hidden" id="input_addons_<?php echo e($insurance->id); ?>" value="<?php echo e($insurance->addon_id); ?>">
+                </span>
                                     </div>
                                 </div>
-                                
-                                <br>
-                                <div class="mailButton">
-                                  <div>
-                                    <a href="mailto:<?php echo e($insurance->email); ?>?Subject=Regarding%20your%20insurance%20plan
-                                    &Body=Dear Mr/Mrs <?php echo e($insurance->full_name); ?>,%0A%0AThis message is sent to notify you that your current insurance plan is to expire soon (on <?php echo e($insurance->end_date); ?>). Please do navigate to our site to renew your insurance plan.%0A%0AThank you and stay safe.%0A%0AKind Regards,%0AStill Waters Fiduciaries Sdn. Bhd%0A%0A"><button>Send expiry notice</button></a>
-                                  </div>
-                                </div>
-                                
                                 <div class="row">
                                     <div class="col-md-12" id="container_addons_<?php echo e($insurance->id); ?>">
                                     </div>
                                 </div><br>
+
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
